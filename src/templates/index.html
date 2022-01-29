@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en-PH">	
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="news article">
+	<meta name="description" content="This is a sample page for a single article">
+	<title>News Page</title>
+	<link rel="stylesheet" href="{% static 'posts/style.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+	<div class= "container">
+		 <!-- NAVIGATION BAR - HEADER --->
+		<div class="nav-wrapper">
+			<div class="nav-left-side">
+				<div class="news-brand">
+					<div>ALTARIA NEWS</div>
+				</div>
+			</div>
+			<div class="nav-right-side">
+				<div class="nav-link-wrapper">
+					<a href="">Home</a>
+				</div>
+				<div class="nav-link-wrapper">
+					<a href="">News</a>
+				</div>
+				<div class="nav-link-wrapper">
+					<a href="">Editorial</a>
+				</div>
+				<div class="nav-link-wrapper">
+					<a href="">Specials</a>
+				</div>
+				<div>
+					{% if user.is_authenticated %}
+						<a href="/logout"><button class="btn btn-success">Logout</button></a>
+					{% else %}
+						<a href="/"><button class="btn btn-success">Login</button></a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+ 		<!-- The block where user sees news picture and the announcements box --->
+		{% if user.is_authenticated %}
+ 		<div class=welcome-user>
+			<p>Welcome, {{ user }}</p>
+ 		</div>
+		{% endif %}
+		<div class="content-wrapper">
+			<div class="news-graphics-wrapper">
+				<div class="graphics-box-wrapper-one">
+					<div class="img-background">
+						{% if post_object.image != None %}
+							<img src="{{post_object.image.url}}">
+						{% endif %}
+						<div class="graphic-txt">{{post_object.caption}}</div>
+					</div>
+				<!--<div class="img-background" style="background-image:url(images/news.jpg)"></div> -->
+				<!-- <div class="graphic-txt">Regal. Elegant. Deadly. The peacock will soon wield its sharp and feathery knives</div> -->
+				</div>
+				<div class="graphics-box-wrapper-two">
+					<div class="img-background" style="background-image:url(/media/announcements.jpg)"></div>
+				</div>
+			</div>
+		 <!-- Article --->
+			<div class="article">
+				<div class="headline">
+					<h1>{{post_object}}</h1>
+					<div class="by-line">
+						<div class="authors-name"><b>Author</b>: {{post_object.author}}</div>
+						<div class="date-of-publication"><b>Date Published</b>: {{post_object.pub_date}}</div>
+					</div>
+				</div>
+				<div class="subtitle"></div>
+				<div class="article-body">
+					<p class="lead">{{post_object.body}}</p>
+				</div>
+			</div>
+ 		<!-- Social Media Icons --->
+			<div class="sharing-options">
+				<div class="wrapper">
+					<div class="button">
+						<div class="icon">
+							<i class="fab fa-facebook-f"></i>
+						</div>
+						<span>Facebook</span>
+					</div>
+					<div class="button">
+						<div class="icon">
+							<i class="fab fa-twitter"></i>
+						</div>
+						<span>Twitter</span>
+					</div>
+					<div class="button">
+						<div class="icon">
+							<i class="fab fa-youtube"></i>
+						</div>
+						<span>Youtube</span>
+					</div>
+				</div>
+			</div>
+		 <!-- More  News --->
+			<div class="more-news">
+				<div class="slider">
+					<div class="slide active">
+						<img src="{% static 'posts/img/lama.jpg' %}">
+						<div class="info">
+							<h2>Lamas in awe of you</h2>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+					<div class="slide">
+						<img src="{% static 'posts/img/fish.jpg' %}">
+						<div class="info">
+							<h2>Fish out of water</h2>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+					<div class="slide">
+						<img src="{% static 'posts/img/elephant.jpg' %}">
+						<div class="info">
+							<h2>Elephants don't forget</h2>
+							<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</div>
+					<div class="navigation">
+						<i class="fas fa-chevron-left prev-btn"></i>
+						<i class="fas fa-chevron-right next-btn"></i>
+					</div>
+					<div class="navigation-markers">
+						<div class="slide-icon active"></div>
+						<div class="slide-icon"></div>
+						<div class="slide-icon"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+			<!-- NAVIGATION BAR - FOOTER --->
+		<div class="footer">
+			<div class="nav-wrapper">
+				<div class="nav-left-side-footer">
+					<div class="nav-link-wrapper">
+						<a href="">Home</a>
+					</div>
+					<div class="nav-link-wrapper">
+						<a href="">About</a>
+					</div>
+					<div class="nav-link-wrapper">
+						<a href="">Contact</a>
+					</div>
+				</div>
+				<div class="nav-right-side-footer">
+					<div class="nav-link-wrapper-footer">
+						<a href="https://facebook.com" class="fab fa-facebook-f"></a>
+					</div>
+					<div class="nav-link-wrapper-footer">
+						<a href="https://twitter.com" class="fab fa-twitter"></a>
+					</div>
+					<div class="nav-link-wrapper-footer">
+						<a href="https://youtube.com class=" class="fab fa-youtube"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="{% static 'posts/gallery.js' %}"></script>
+</body>
+</html>

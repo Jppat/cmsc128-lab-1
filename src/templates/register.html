@@ -1,0 +1,59 @@
+{% extends "forms.html" %}
+
+{% block title %} Registration {% endblock %}
+
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'posts/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class= "login-container">
+            <div class="heading">
+                <h1>Register</h1>
+            </div>
+            <div>
+               {% if messages %}
+                    {% for message in messages %}
+                        <div>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-fields">
+                    <!-- {{ form.errors }} -->
+                    {% for field in form %}
+                        <div class="fieldWrapper">
+                            <div class="field-item">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% if field.id_for_label == form.password1.id_for_label %}
+                                    <i id="toggle-icon1" class="fas fa-eye"></i>
+                                {% endif %}
+                                {% if field.id_for_label == form.password2.id_for_label %}
+                                    <i id="toggle-icon2" class="fas fa-eye"></i>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-success">Register</button>
+                <div class="extra-options">
+                <p>Already have an account? <a href="/">Login</a></p>
+                </div>
+            </form>
+            {% for field, error in form.errors.items %}
+                <div class="errors"> {{ error | striptags }} </div>
+            {% endfor %}
+        </div>
+	</div>
+{% endblock %}
+
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'posts/visibility2.js' %}"></script>
+{% endblock %}

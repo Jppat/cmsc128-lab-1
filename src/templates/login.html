@@ -1,0 +1,52 @@
+{% extends "forms.html" %}
+{% block title %} Login {% endblock %}
+
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'posts/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+        <div class="login-container">
+            <div class="heading">
+                <h1>Login</h1>
+            </div>
+            <div class = "message-container">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-fields">
+                    {% for field in form %}
+                        <div class="error-list">{{ field.errors | striptags }}</div>
+                        <div class="fieldWrapper">
+                            <div class="field-item">
+                                {{ field.label_tag }}
+                                {{ field }}
+                                {% if field.id_for_label == form.password.id_for_label %}
+                                    <i id="toggle-icon" class="fas fa-eye "></i>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button type="submit" class="btn btn-success">Login</button>
+                <div class="extra-options">
+                    <p class="extra-options">Not yet a user? <a href="/register">Register here</a></p>
+                    <p class="extra-options">or <a href="guest">Browse as guest</a></p>
+                </div>
+            </form>
+        </div>
+	</div>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'posts/visibility.js' %}"></script>
+{% endblock %}

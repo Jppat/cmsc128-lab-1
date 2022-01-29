@@ -1,0 +1,17 @@
+{% extends "forms.html" %}
+
+{% block title %} Log out {% endblock %}
+
+{% block stylesheet %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'posts/forms.css' %}">
+{% endblock %}
+
+{% block content %} 
+
+<div class="message">
+	<div> You have been logged out. </div> 
+	<div> Log in again? <a href="/"> Login </div>
+</div>
+
+{% endblock %}

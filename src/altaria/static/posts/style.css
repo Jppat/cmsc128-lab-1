@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+/* Main Styles */
+body{
+	margin:  0px;
+}
+
+.container{
+	display: grid;
+	grid-template-columns: 100%;
+}
+
+.welcome-user {
+	display: grid;
+	margin-left: 40px;
+	font-size: 20px;
+	font-family: Poppins;
+}
+
+/* Nav Styles */
+.nav-wrapper {
+	display:  flex;
+	justify-content: space-between;
+	padding:  38px;
+	color:  white;
+	background: #3E50B5;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	position: relative;
+	background-image: url("/static/posts/img/banner.png");
+	background-size: cover;
+	background-position: contain;
+	background-repeat: no-repeat;
+}
+
+.footer .nav-wrapper {
+	background: black;
+	height:  10px;
+}
+
+.nav-right-side {
+	display: flex;
+}
+
+.nav-right-side-footer{
+	display: flex;
+}
+
+.nav-right-side-footer > div{
+	display: flex;
+	line-height: 25px;
+	margin-right: 20px;
+	font-size: 1em;
+}
+
+.nav-left-side-footer{
+	display: flex;
+	font-size: 0.9em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+
+.nav-left-side-footer > div{
+	margin-right: 20px;
+}
+
+.nav-wrapper > .nav-right-side > div {
+	margin-right: 20px;
+	font-size: 0.9em;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+
+.news-brand{
+	color: whitesmoke;
+}
+
+.nav-link-wrapper {
+	height:  22px;
+	border-bottom:  1px solid transparent;
+	transition:  border-bottom 0.5s;
+	
+}
+
+.nav-link-wrapper:hover{
+	border-bottom:  1px solid whitesmoke;
+}
+
+.nav-link-wrapper a{
+	color:  whitesmoke;
+	text-decoration: none;
+}
+
+.nav-link-wrapper-footer a{
+	text-decoration: none;
+	color: white;
+}
+
+
+.footer > .nav-wrapper{
+	display: flex;
+}
+
+/* News Proper Styles */
+
+.content-wrapper{
+	padding: 38px;
+}
+
+.news-graphics-wrapper{
+	height: 540px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 80% 20%;
+	column-gap: 1%;
+}
+
+.graphics-box-wrapper-one{
+	height: inherit;
+	width: inherit;
+	position: relative;
+	position: relative;
+}
+
+.graphics-box-wrapper-two{
+	height: 270px;
+	position: relative;
+}
+
+.img-background{
+	height: inherit;
+	width: 100%;	
+}
+
+.img-background > img{
+	display: relative;
+	height: 100%;
+	width: 100%;
+	border-radius: 10px;
+}
+
+.graphic-txt{
+	height: 40px;
+	width: inherit;
+	position:  absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	transition: 1s;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	color:  #a4bcbc;
+}
+
+.graphic-txt:hover{
+	color: ghostwhite;
+}
+
+/* Article Styles */
+.article {
+	border-bottom:  1px solid #4c3f77;
+	max-width: 100%;
+}
+
+.headline{
+	display: flex;
+	justify-content: left;
+	align-items: center;
+	grid-template-columns: auto auto auto;
+}
+
+.headline h1{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	color:  #1c2451;
+	margin-bottom: 5px;
+}
+
+.by-line{
+	border-left: 1px solid black;
+	margin-left: 25px;
+	margin-top: 13px;
+	padding-left: 5px;
+	font-family: 'Montserrat', sans-serif;	
+	font-family: 400;
+	font-size:  10px;
+	color:  #3E50B5;
+}
+
+.subtitle{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+}
+
+.article-body{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}
+
+.lead{
+	margin-top: 5px;
+}
+
+.article-body p{
+	margin: 10px 0px;
+	overflow-wrap: break-word;
+  	hyphens: auto;
+}
+
+
+/*SocMed Sharing Options Styles */
+.sharing-options {
+	font-family: "Poppins", sans-serif;
+	margin-top: 10px;
+	display: grid;
+	margin-bottom: 20px;
+}
+
+.wrapper{
+	display:  block;
+}
+
+.wrapper > .button{
+	display: block;
+	height: 50px;
+	width: 50px;
+	float: left;
+	margin:  0 5px;
+	background: ghostwhite;
+	border-radius: 50px;
+	cursor: pointer;
+	box-shadow: 5px 10px 5px #888888;
+	overflow: hidden;
+	transition: all 0.3s ease-out;
+	align-items: center;
+}
+
+.wrapper > .button:hover{
+	width: 148px;
+}
+
+.wrapper > .button > .icon{
+	display: inline-block;
+	text-align: center;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	line-height: 50px;
+}
+
+.wrapper > .button > .icon > i{
+	font-size: 20px;
+	line-height: 50px;
+	color: black;
+	text-decoration: none;
+}
+
+.wrapper > .button > .icon > .span{
+	font-size: 10px;
+	font-weight: 500;
+	line-height: 60px;
+}
+
+.more-news{
+	display: block;
+}
+
+.slider{
+	position: relative;
+	width: 800px;
+	max-height: 500px;
+	min-height: 500px;
+	margin-right: 20px;
+	overflow: hidden;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	background-color: black;
+}
+
+.slider .slide{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	clip-path: inset(0 100% 0 0);
+}
+
+.slider .slide.active {
+	clip-path: inset(0 0 0 0);
+	transition: 1s ease;
+}
+
+.slider .slide img{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.slider .slide .info{
+	font-family: "Poppins", sans-serif;
+	position: absolute;
+	margin-left: 50px;
+	bottom: 10px;
+	width: 80%;
+	padding: 10px;	
+	background: white;
+	opacity: 0.6;
+	border-radius: 5px;
+	box-shadow: 0 5px 25px rgb(1 1 1/ 5%);
+	margin-bottom: 5px;
+
+}
+
+.slider .slide .info h2{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.slider .slide .info p{
+	margin:  2px;
+}
+
+.navigation{
+	height: 500px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	opacity: 0;
+	transition: opacity 0.5s ease;
+}
+
+.slider:hover .navigation{
+	opacity: 1;
+}
+
+.prev-btn, .next-btn{
+	z-index: 999;
+	font-size: 2em;
+	background: white;
+	padding: 10px;
+	cursor: pointer;
+}
+
+.navigation-markers{
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+}
+
+.navigation-markers .slide-icon{
+	z-index: 999;
+	background: whitesmoke;
+	opacity: 0.6;
+	width: 20px;
+	height: 10px;
+	transform: translateY(-480px);
+	margin: 0 6px;
+	border-radius: 2px;
+	box-shadow: 0 5px 25px rgb(1 1 1/ 20%);
+}
+
+.navigation-markers .slide-icon.active{
+	background: #3E50B5;
+}
+
+@media (max-width: 900px){
+	.slider{
+    width: 100%;
+	}
+
+	.slider .slide .info {
+    position: absolute;
+    width: 80%;
+	}
+}
