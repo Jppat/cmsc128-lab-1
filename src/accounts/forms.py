@@ -62,7 +62,7 @@ class LoginForm(forms.Form):
 	def clean_username(self):
 		errors = []
 		username= self.cleaned_data.get("username")
-		qs = User.objects.filter(username=username)
+		qs = User.objects.filter(username__iexact=username)
 		if not qs.exists():
 			errors.append(forms.ValidationError("Username does not exist. Please register first. "))
 		if errors:

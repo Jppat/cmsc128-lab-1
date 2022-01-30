@@ -23,9 +23,7 @@ def register_view(request):
 			user = None
 		if user != None:
 			login(request, user)
-			return redirect("/")
-		else:
-			request.session["register_error"] = 1
+			return redirect("newspage")
 	return render(request,"register.html", {"form": form})
 
 def login_view(request):
@@ -37,7 +35,7 @@ def login_view(request):
 			#check if user details are valid
 			user = authenticate(request, username=username, password=password)
 			if user != None:
-				request.session.set_expiry(10)
+				request.session.set_expiry(300)
 				login(request, user)
 				return redirect("newspage")
 			else:
