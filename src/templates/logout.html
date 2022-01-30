@@ -10,6 +10,15 @@
 {% block content %} 
 
 <div class="message">
+	<div>
+	   {% if messages %}
+	        {% for message in messages %}
+	            <div>
+	                {{ message }}
+	            </div>
+	        {% endfor %}
+	    {% endif %}
+	</div>
 	<div> You have been logged out. </div> 
 	<div> Log in again? <a href="/"> Login </div>
 </div>

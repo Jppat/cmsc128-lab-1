@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Post
 
 # Create your views here.
@@ -13,6 +14,7 @@ def view_article(request):
 		}
 		return render(request, "index.html", context)
 	else:
+		messages.info(request,"Your session has expired")
 		return redirect("logout")
 
 
